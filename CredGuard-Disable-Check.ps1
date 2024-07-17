@@ -73,7 +73,7 @@ else
 }
 #
 $SystemKeyCheck=(Get-Item $SystemKey).property # Grab values from key
-$SystemValueCheck=(select-string -pattern "$Value " -InputObject $SystemKeyCheck) # Grab desired value from key
+$SystemValueCheck=(select-string -pattern "\b$Value\b" -InputObject $SystemKeyCheck) # Grab desired value from key
 #
 if ([string]::IsNullOrEmpty($SystemValueCheck)) # Check value exists 
 {
